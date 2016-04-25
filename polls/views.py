@@ -4,7 +4,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from polls.forms import UserForm, UserProfileForm
 
@@ -99,5 +100,14 @@ def user_login(request):
             return HttpResponse("Invalid login deets supplied")
     else:
         return render_to_response('polls/login.html', {}, context)
+
+@login_required #python decorator 
+def restricted(request):
+    return HttpResponse("You're logged in so you can see this")
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/polls/')
 
 

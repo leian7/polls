@@ -6,7 +6,6 @@ from django.test import TestCase
 
 from .models import Question
 
-
 #subclass of django.test.TestCase class
 class QuestionMethodTest(TestCase):
     
