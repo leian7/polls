@@ -2,6 +2,12 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
+{% if user.is_authenticated %}
+<h1>Welcome to Polls, {{ user.username }}!!!!!</h1>
+{% else %}
+<h1> Welcome to Polls, stranger ;)</h1>
+{% endif %}
+
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -13,3 +19,15 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+{% if user.is_authenticated %}
+<a href="/polls/restricted/">Restricted page!! Try it ;)</a></br />
+<a href="/polls/logout/">Logout here!!</a></br />
+
+{% else %}
+<a href="/polls/register/">Register Here!!</a>
+<a href="/polls/login/">Login Here!!</a>
+{% endif %}
+
+
+

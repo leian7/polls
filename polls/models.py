@@ -4,6 +4,7 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -26,3 +27,9 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice_text
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    bio = models.CharField(max_length=140, blank=True)
+    picture = models.ImageField(upload_to='profile_images', blank=True)
+    def __unicode__(self):
+        return self.user.username

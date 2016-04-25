@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Choice, Question
+from .models import Choice, Question, UserProfile
 
 
 class ChoiceInline(admin.TabularInline):
@@ -21,4 +21,4 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ['question_text']
 
 admin.site.register(Question, QuestionAdmin) #tell admin that Question objs have admin interface
-
+admin.site.register(UserProfile)
