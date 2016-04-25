@@ -7,6 +7,7 @@ from django.test import TestCase
 from .models import Question
 
 #subclass of django.test.TestCase class
+#tests Question method "was published recently"
 class QuestionMethodTest(TestCase):
     
     def test_was_published_recently_with_future_question(self):
@@ -27,10 +28,14 @@ class QuestionMethodTest(TestCase):
         recent_question = Question(pub_date=time)
         self.assertEqual(recent_question.was_published_recently(), True)
 
+
+#helper function for easier testing (less typing)
 def create_question(question_text, days):
     time = timezone.now() + datetime.timedelta(days=days)
     return Question.objects.create(question_text=question_text, pub_date=time)
 
+
+#test Question view
 class QuestionViewTests(TestCase):
     def test_index_view_with_no_questions(self):
         response = self.client.get(reverse('polls:index'))
@@ -68,6 +73,8 @@ class QuestionViewTests(TestCase):
         self.assertQuerysetEqual(
             response.context['latest_question_list'], ['<Question: Past question 2.>', '<Question: Past question 1.>'])
 
+
+#test Detail view
 #DetailView: test that future questions are excluded and valid qs displayed
 class QuestionIndexDetailTests(TestCase):
     def test_detail_view_with_a_future_question(self):
