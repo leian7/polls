@@ -2,6 +2,12 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
+{% if user.is_authenticated %}
+<h1>Welcome to Polls, {{ user.username }}!!!!!</h1>
+{% else %}
+<h1> Welcome to Polls, stranger ;)</h1>
+{% endif %}
+
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -14,3 +20,4 @@
     <p>No polls are available.</p>
 {% endif %}
 <a href="/polls/register/">Register Here!!</a>
+<a href="/polls/login/">Login Here!!</a>
