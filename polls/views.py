@@ -80,6 +80,12 @@ def register(request):
         'polls/register.html',
         {'user_form': user_form, 'profile_form': profile_form, 'registered': registered}, context)
 
+
+def user_profile(request): 
+    #   print "hey yo, your personal deets should be here"
+    context = RequestContext(request)
+    return render_to_response('polls/profile.html')
+    
 def user_login(request):
     context = RequestContext(request)
     
