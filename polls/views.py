@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext as _
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
@@ -118,3 +119,7 @@ def user_logout(request):
 
 def hello(request):
     return HttpResponse('hello!')
+
+def translate(request):
+    output = _("Welcome to my site.")
+    return HttpResponse(output)
