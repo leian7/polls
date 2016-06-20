@@ -17,4 +17,5 @@ urlpatterns= [
     url(r'^profile/$', views.user_profile, name='profile'),
     url(r'^hello/$', views.hello, name='hello'),
     url(r'^translate/$', views.translate, name='translate'),
+    url(r'^today/$', views.today, name='today'),
 ]

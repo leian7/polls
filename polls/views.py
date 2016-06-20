@@ -123,3 +123,7 @@ def hello(request):
 def translate(request):
     output = _("Welcome to my site.")
     return HttpResponse(output)
+
+def today(request):
+    output = _('Today is %(month)s %(day)s.') % {'month': 'June', 'day': '20'}
+    return HttpResponse(output)
