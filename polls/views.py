@@ -121,6 +121,7 @@ def hello(request):
     return HttpResponse('hello!')
 
 def translate(request):
+    # Translators: This message appears here only
     output = _("Welcome to my site.")
     return HttpResponse(output)
 
