@@ -116,4 +116,5 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/polls/')
 
-
+def hello(request):
+    return HttpResponse('hello!')
