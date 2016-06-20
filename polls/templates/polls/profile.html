@@ -1,0 +1,5 @@
+{% if user.is_authenticated %}
+<h1>Here is your profile, {{ user.username }}!! </h1>
+{% else %}
+<h1>I can't show u anything if you're not logged in dummy!!</h1>
+{% endif %}
