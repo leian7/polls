@@ -64,6 +64,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.i18n',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -124,6 +125,10 @@ LANGUAGES = [
     ('es-mx', _('Mexican Spanish')),
     ('en', _('English')),
 ]
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR,'locale'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
