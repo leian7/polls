@@ -20,3 +20,4 @@ urlpatterns = [
     url(r'^translate/$', views.translate, name='translate'),
     url(r'^today/$', views.today, name='today'),
 ]
+
