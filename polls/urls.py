@@ -1,11 +1,12 @@
 from django.conf.urls import url
+from django.conf.urls.i18n import i18n_patterns
 
 from . import views
 
 #namespace url names-- when proj has many apps, django needs to be able to differentiate between url names because two or more apps may have a view that is named the same
 
-app_name = 'polls' 
-urlpatterns= [
+app_name = 'polls'
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
     url(r'^(?P<pk>[0-9]+)/results/$', views.ResultsView.as_view(), name='results'),
